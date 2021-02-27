@@ -9,27 +9,16 @@ mv ~/Downloads/*.png ~/Pictures/
 
 mv ~/Downloads/*.mp4 ~/Videos/
 
-Printing_Dir=~/3D\ Printing
-if test -d "$Printing_Dir"; then
 
-else
-        mkdir ~/3D\ Printing
-fi
+Pdir=~/3D\ Printing
+test -d "$Pdir" || mkdir "$Pdir"
 
-gcode=~/3D\ Printing/~/3D\ Printing/Gcode\ files/
+gcode_dir=~/3D\ Printing/Gcode\ files/
 
-if test -d "$gcode"; then
-        mv ~/Downloads/*.gcode ~/3D\ Printing/Gcode\ files/
-else
-        mkdir ~/3D\ Printing
-        mv ~/Downloads/*.gcode ~/3D\ Printing/Gcode\ files/
-fi
+test -d "$gcode_dir" || mkdir "$gcode_dir"
+test -d "$gcode_dir" && mv ~/Downloads/*.gcode "$gcode_dir"
 
-stl=~/Downloads/*.STL ~/3D\ Printing/STL\ files/
+stl_dir=~/3D\ Printing/STL\ files/
 
-if test -d "$stl"; then
-        mv ~/Downloads/*.STL ~/3D\ Printing/STL\ files/
-else
-        mkdir ~/3D\ Printing
-        mv ~/Downloads/*.STL ~/3D\ Printing/STL\ files/
-fi
+test -d "$stl_dir" || mkdir "$stl_dir"
+test -d "$stl_dir" && mv ~/Downloads/*.stl "$stl_dir"
